@@ -4,8 +4,8 @@ import scala.annotation.tailrec
 /**
  * This is a simple implementation of a List.
  * Inside the List, we have two cases: Cons and Nil.
- * Cons is a case class that represents a non-empty list.
- * Nil is an object that represents an empty list.
+ * Cons represents a non-empty list.
+ * Nil represents an empty list.
  * operations:
  * - sum: sum all the elements of a list of integers
  * - append: append two lists
