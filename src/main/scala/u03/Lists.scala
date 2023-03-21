@@ -1,19 +1,36 @@
 package u03
 import scala.annotation.tailrec
 
+/**
+ * This is a simple implementation of a List.
+ * Inside the List, we have two cases: Cons and Nil.
+ * Cons is a case class that represents a non-empty list.
+ * Nil is an object that represents an empty list.
+ * operations:
+ * - sum: sum all the elements of a list of integers
+ * - append: append two lists
+ * - flatMap: apply a function to each element of a list and then flatten the result
+ * - map: apply a function to each element of a list
+ * - filter: filter the elements of a list
+ * - drop: drop the first n elements of a list
+ * - max: find the maximum element of a list of integers
+ * - getCoursesByList: get the courses of a list of persons
+ * - foldLeft: fold a list from left to right
+ * - foldRight: fold a list from right to left
+ */
 object Lists extends App :
 
   enum List[E]:
     case Cons(head: E, tail: List[E])
     case Nil()
 
-  enum Person: // a sum type defined by enumerating various cases
+  enum Person:
     case Student(name: String, year: Int)
     case Teacher(name: String, course: String)
 
   enum Option[A]:
     case Some(a: A)
-    case None() // here parens are needed because of genericity
+    case None()
 
   // a companion object (i.e., module) for List
   object List:

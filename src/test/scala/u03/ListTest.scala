@@ -5,6 +5,9 @@ import org.junit.Assert.*
 import Lists.*
 import u03.Lists.Person.{Student, Teacher}
 
+/**
+ * This is a test class for the Lists module.
+ */
 class ListTest:
   import List.*
 
