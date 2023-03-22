@@ -3,6 +3,8 @@ package u03
 import org.junit.*
 import org.junit.Assert.*
 import Lists.*
+import u02.Optionals.*
+import u02.Optionals.Option.*
 import u03.Lists.Person.{Student, Teacher}
 
 /**
@@ -10,7 +12,6 @@ import u03.Lists.Person.{Student, Teacher}
  */
 class ListTest:
   import List.*
-
   val l: List[Int] = Cons(10, Cons(20, Cons(30, Nil())))
 
   @Test def testSum(): Unit =
@@ -20,6 +21,8 @@ class ListTest:
   @Test def testMap(): Unit =
     assertEquals(Cons(11, Cons(21, Cons(31, Nil()))), map(l)(_+1))
     assertEquals(Cons("10", Cons("20", Cons("30", Nil()))), map(l)(x => x+""))
+    assertEquals(Nil(), map(Nil[Int]())(x => x+""))
+    assertEquals(Nil(), map(Nil[Int]())(x => x+1)) //non capito perfettamente
 
   @Test def testFilter(): Unit =
     assertEquals(Cons(20, Cons(30, Nil())), filter(l)(_>=20))
@@ -29,7 +32,6 @@ class ListTest:
     assertEquals(Cons(20, Cons(30, Nil())), drop(l,1))
     assertEquals(Cons(30, Nil()), drop(l,2))
     assertEquals(Nil(), drop(l,5))
-
 
   @Test def testAppend(): Unit =
     val tail = Cons(40, Nil())
@@ -59,20 +61,17 @@ class ListTest:
     val teacherOne = Teacher("Mirko","PPS")
     val teacherTwo = Teacher("Alessandro","PCD")
     val listOfPersons = Cons(studentOne, Cons(teacherOne, Cons(studentTwo, Cons(teacherTwo, Nil()))))
-
     assertEquals(Cons("PPS", Cons("PCD", Nil())), getCoursesByList(listOfPersons))
     assertEquals(Nil(), getCoursesByList(Cons(studentOne,Cons(studentTwo, Nil()))))
 
   @Test def testFoldLeft(): Unit =
     val lst = Cons(3, Cons(7, Cons(1, Cons(5,Nil()))))
-
     assertEquals(-16, foldLeft(lst)(0)(_ - _))
     assertEquals(16, foldLeft(lst)(0)(_ + _))
     assertEquals(0, foldLeft(Nil[Int]())(0)(_ - _))
 
   @Test def testFoldRight(): Unit =
     val lst = Cons(3, Cons(7, Cons(1, Cons(5, Nil()))))
-
     assertEquals(-8, foldRight(lst)(0)(_ - _))
     assertEquals(3, foldRight(Cons(3, Nil()))(0)(_ + _))
     assertEquals(3, foldRight(Cons(3, Nil()))(0)(_ - _))

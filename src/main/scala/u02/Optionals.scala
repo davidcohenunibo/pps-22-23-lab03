@@ -3,8 +3,8 @@ package u02
 object Optionals extends App :
 
   enum Option[A]:
-    protected case Some(a: A)
-    protected case None() // here parens are needed because of genericity
+    case Some(a: A)
+    case None() // here parens are needed because of genericity
 
   object Option:
 
