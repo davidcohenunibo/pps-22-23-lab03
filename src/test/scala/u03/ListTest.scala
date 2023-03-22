@@ -5,7 +5,8 @@ import org.junit.Assert.*
 import Lists.*
 import u02.Optionals.*
 import u02.Optionals.Option.*
-import u03.Lists.Person.{Student, Teacher}
+import u02.AlgebraicDataTypes.*
+import u02.AlgebraicDataTypes.Person.*
 
 /**
  * This is a test class for the Lists module.

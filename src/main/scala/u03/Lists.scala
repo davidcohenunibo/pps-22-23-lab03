@@ -24,20 +24,13 @@ object Lists extends App :
     case Cons(head: E, tail: List[E])
     case Nil()
 
-  enum Person:
-    case Student(name: String, year: Int)
-    case Teacher(name: String, course: String)
-
-//  enum Option[A]:
-//    case Some(a: A)
-//    case None()
-
   // a companion object (i.e., module) for List
   object List:
 
     import u02.Optionals.*
     import u02.Optionals.Option.*
-    import Person.*
+    import u02.AlgebraicDataTypes.*
+    import u02.AlgebraicDataTypes.Person.*
 
     def sum(l: List[Int]): Int = l match
       case Cons(h, t) => h + sum(t)
